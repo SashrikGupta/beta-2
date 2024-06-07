@@ -6,7 +6,6 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const { AssemblyAI } = require('assemblyai');
-
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
