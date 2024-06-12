@@ -11,7 +11,6 @@ const upload = multer({ dest: 'uploads/' });
 
 app.use(cors()); // Enable CORS for all routes
 
-
 const client = new AssemblyAI({
     apiKey: '687063c7417345c4b8de68a676b60714'
 });
@@ -27,6 +26,11 @@ const run = async () => {
     const transcript = await client.transcripts.transcribe(params);
     return transcript.text;
 };
+
+// Acknowledgment endpoint
+app.get('/acknowledgment', (req, res) => {
+    res.json({ status: 'running' });
+});
 
 app.get('/try', async (req, res) => {
     const ans = await run();
